@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Todo List</string>
     <string name="greeting_text">Todo List!!</string>
+    <string name="commit_check_text">Commit check.</string>
 </resources>
