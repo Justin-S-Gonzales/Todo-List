@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">Todo List</string>
     <string name="greeting_text">Todo List!!</string>
-    <string name="commit_check_text">Commit check.</string>
+    <string name="title">Title</string>
+    <string name="due_date">Due Date</string>
+    <string name="repeat">Repeat</string>
+    <string name="create">Create</string>
+    <string name="enter">Enter</string>
+    <string name="name">Name</string>
+    <string name="color">Color</string>
 </resources>
