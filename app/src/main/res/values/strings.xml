@@ -1,14 +1,37 @@
 <resources>
+    <!-- main activity resource strings -->
     <string name="app_name">Todo List</string>
-    <string name="greeting_text">Todo List!!</string>
+    <string name="loading_text">Now loading...</string>
+
+    <!-- create_folder and create_task strings -->
+    <string name="create_task_toolbar">Create Task</string>
+    <string name="create_folder_toolbar">Create Folder</string>
     <string name="title">Title</string>
+    <string name="title_enter_text">Enter title here...</string>
     <string name="due_date">Due Date</string>
+    <string name="due_date_enter_text">Enter due date here...</string>
     <string name="repeat">Repeat</string>
     <string name="create">Create</string>
     <string name="enter">Enter</string>
     <string name="name">Name</string>
+    <string name="name_enter_text">Enter name here...</string>
     <string name="color">Color</string>
+    <string name="color_enter_text">Enter color here...</string>
+
+    <!-- delete message strings -->
+    <string name="delete_warning">WARNING</string>
+    <string name="delete_folder_message">All tasks in this folder will be deleted.\nDo you wish to continue?</string>
+    <string name="delete_task_message">This is a recurring task.\nDo you wish to delete all future instances of this task?</string>
+    <string name="button_yes_text">Continue</string>
+    <string name="button_no_text">Cancel</string>
+    <string name="button_delete_one_text">Delete only this task</string>
+    <string name="button_delete_all_text">Delete all future tasks</string>
+    <string name="button_cancel_text">Cancel</string>
+
+    <!-- folder list and todo list variables -->
+    <string name="folder_toolbar_string">Folder List</string>
     <string name="action_settings">Settings</string>
-    <string name="new_folder">New Folder</string>
-    <string name="create_todo">New Todo</string>
+    <string name="new_folder">Create New Folder</string>
+    <string name="create_todo">Create New Task</string>
+    <string name="temp_folder_name">Chores</string>
 </resources>
