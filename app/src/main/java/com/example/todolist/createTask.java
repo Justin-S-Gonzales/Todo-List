@@ -212,8 +212,10 @@ public class createTask extends AppCompatActivity {
         task_list.add(temp_task);
 
         //if not already in the ALL folder, add the task to the all folder as well (NOTE: this isn't how the ALL folder should work, but oh well. this is a copy of the task, not the task itself.)
-        ArrayList<Task> temp = MainActivity.folder_list.get(0).getTasks();
-        temp.add(temp_task);
+        if(MainActivity.current_folder_index != 0) {    //if not in the all folder
+            ArrayList<Task> temp = MainActivity.folder_list.get(0).getTasks();
+            temp.add(temp_task);
+        }
 
         //return to taskList
         Intent intent = new Intent(this, taskList.class);

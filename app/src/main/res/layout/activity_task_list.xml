@@ -57,9 +57,9 @@
 
         <Button
             android:id="@+id/task_trash"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@android:drawable/ic_menu_delete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/clipart1120803"
             android:backgroundTint="@color/white"
             tools:layout_editor_absoluteX="50dp"
             tools:layout_editor_absoluteY="50dp" />
