@@ -11,7 +11,7 @@
         android:id="@+id/folder_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/teal_700"
         android:elevation="4dp"
         android:theme="@style/Theme.TodoList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -40,7 +40,6 @@
             tools:layout_editor_absoluteY="50dp" />
 
 
-
     </androidx.appcompat.widget.Toolbar>
 
     <Button
@@ -51,12 +50,22 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/btn_bg"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/teal_200"
         android:drawableRight="@android:drawable/ic_menu_add"
+        android:onClick="createNewFolder"
         android:text="@string/new_folder"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/folder_toolbar" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/task_list_recycler"
+        android:layout_width="390dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

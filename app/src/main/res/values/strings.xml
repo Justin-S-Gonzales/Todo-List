@@ -10,19 +10,37 @@
     <string name="title_enter_text">Enter title here...</string>
     <string name="due_date">Due Date</string>
     <string name="due_date_enter_text">Enter due date here...</string>
-    <string name="repeat">Repeat</string>
-    <string name="create">Create</string>
-    <string name="enter">Enter</string>
-    <string name="name">Name</string>
+    <string name="due_time">Due Time</string>
+    <string name="due_time_enter_text">Enter due date here...</string>
+    <string name="repeat_text">Repeat</string>
+    <string name="repeat_radio_1">No repeat</string>
+    <string name="repeat_radio_2">Daily</string>
+    <string name="repeat_radio_3">Weekly</string>
+    <string name="repeat_radio_4">Monthly</string>
+    <string name="repeat_radio_5">Yearly</string>
+    <string name="create_text">Create</string>
+    <string name="name_text">Name</string>
     <string name="name_enter_text">Enter name here...</string>
     <string name="color">Color</string>
-    <string name="color_enter_text">Enter color here...</string>
+    <string name="color_text_red">Red</string>
+    <string name="color_text_orange">Orange</string>
+    <string name="color_text_yellow">Yellow</string>
+    <string name="color_text_green">Green</string>
+    <string name="color_text_blue">Blue</string>
+    <string name="color_text_purple">Purple</string>
+    <string name="color_text_pink">Pink</string>
+    <string name="color_text_tan">Tan</string>
+    <string name="color_text_grey">Grey</string>
+
+    <!-- Java referenced strings -->
+    <string name="folder_all_name">All</string>
+    <string name="folder_completed_name">Completed</string>
 
     <!-- delete message strings -->
     <string name="delete_warning">WARNING</string>
     <string name="delete_folder_message">All tasks in this folder will be deleted.\nDo you wish to continue?</string>
     <string name="delete_task_message">This is a recurring task.\nDo you wish to delete all future instances of this task?</string>
-    <string name="button_yes_text">Continue</string>
+    <string name="button_yes_text">Delete folder</string>
     <string name="button_no_text">Cancel</string>
     <string name="button_delete_one_text">Delete only this task</string>
     <string name="button_delete_all_text">Delete all future tasks</string>

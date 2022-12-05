@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".createTask">
+    tools:context=".createFolder">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/task_list_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/teal_700"
         android:elevation="4dp"
         android:theme="@style/Theme.TodoList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -23,6 +23,7 @@
             android:layout_height="40dp"
             android:background="@android:drawable/ic_menu_revert"
             android:backgroundTint="@color/white"
+            android:onClick="onBackButtonClicked"
             tools:layout_editor_absoluteX="50dp"
             tools:layout_editor_absoluteY="50dp" />
 
@@ -50,10 +51,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/name"
+        android:layout_marginTop="10dp"
+        android:text="@string/name_text"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_list_toolbar" />
@@ -65,13 +66,13 @@
         android:layout_marginStart="20dp"
         android:text="@string/color"
         android:textColor="@color/black"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/editName" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/editName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -79,37 +80,118 @@
         android:hint="@string/name_enter_text"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
+        android:minHeight="40dp"
+        android:singleLine="true"
+        android:textAllCaps="true"
         android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textName"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName2"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:ems="10"
-        android:hint="@string/color_enter_text"
-        android:importantForAutofill="no"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:textColorHint="#546E7A"
-        android:textSize="24sp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textColor" />
+        app:layout_constraintTop_toBottomOf="@+id/textColor">
+
+        <RadioButton
+            android:id="@+id/repeat_radio_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/red"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_red"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textRepeat" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/orange"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_orange"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/yellow"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_yellow"
+            app:layout_constraintStart_toEndOf="@+id/repeat_radio_2"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/green"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_green"
+            app:layout_constraintStart_toEndOf="@+id/repeat_radio_3"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/blue"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_blue"
+            app:layout_constraintStart_toEndOf="@+id/repeat_radio_4"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/purple"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_purple"/>
+
+        <RadioButton
+            android:id="@+id/repeat_radio_7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/pink"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_pink"/>
+
+        <RadioButton
+            android:id="@+id/repeat_radio_8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:buttonTint="@color/tan"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/color_text_tan"/>
+
+    </RadioGroup>
 
     <Button
         android:id="@+id/button2"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_bg"
-        android:backgroundTint="@color/purple_500"
+        android:backgroundTint="@color/teal_200"
         android:focusable="auto"
-        android:text="@string/create"
+        android:onClick="submitData"
+        android:text="@string/create_text"
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"

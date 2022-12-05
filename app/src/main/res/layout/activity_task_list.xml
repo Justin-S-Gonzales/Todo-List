@@ -7,11 +7,20 @@
     android:elevation="4dp"
     tools:context=".taskList">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/task_list_recycler"
+        android:layout_width="390dp"
+        android:layout_height="500dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_todo" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/task_list_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/gray"
         android:elevation="4dp"
         android:theme="@style/Theme.TodoList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +33,7 @@
             android:layout_height="40dp"
             android:background="@android:drawable/ic_menu_revert"
             android:backgroundTint="@color/white"
+            android:onClick="onBackButtonClicked"
             tools:layout_editor_absoluteX="50dp"
             tools:layout_editor_absoluteY="50dp" />
 
@@ -40,7 +50,7 @@
             android:layout_height="match_parent"
             android:backgroundTint="@android:color/transparent"
             android:text="@string/temp_folder_name"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="20sp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
@@ -55,7 +65,6 @@
             tools:layout_editor_absoluteY="50dp" />
 
 
-
     </androidx.appcompat.widget.Toolbar>
 
     <Button
@@ -66,10 +75,11 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@drawable/btn_bg"
-        android:backgroundTint="@color/purple_200"
+        android:backgroundTint="@color/teal_200"
         android:drawableRight="@android:drawable/ic_menu_add"
+        android:onClick="createNewTask"
         android:text="@string/create_todo"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

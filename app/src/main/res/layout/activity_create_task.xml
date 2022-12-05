@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".createFolder">
+    tools:context=".createTask">
 
     <!--Title TextView -->
 
@@ -14,11 +14,23 @@
 
     <!--CreateButton TextView -->
 
+    <TextView
+        android:id="@+id/textDueTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/due_time"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datePickerButton" />
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/task_list_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
+        android:background="@color/teal_700"
         android:elevation="4dp"
         android:theme="@style/Theme.TodoList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -31,6 +43,7 @@
             android:layout_height="40dp"
             android:background="@android:drawable/ic_menu_revert"
             android:backgroundTint="@color/white"
+            android:onClick="onBackButtonClicked"
             tools:layout_editor_absoluteX="50dp"
             tools:layout_editor_absoluteY="50dp" />
 
@@ -58,10 +71,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:text="@string/title"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/task_list_toolbar" />
@@ -73,38 +86,58 @@
         android:layout_marginStart="20dp"
         android:text="@string/due_date"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/enterTitle" />
 
-    <!--Title EditText -->
-
-    <!--DueDate EditText -->
-
-    <Switch
-        android:id="@+id/repeat"
+    <TextView
+        android:id="@+id/textRepeat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:minHeight="48dp"
-        android:scaleX="1"
-        android:scaleY="1"
-        android:switchPadding="10dp"
-        android:text="@string/repeat"
-        android:textSize="30sp"
+        android:text="@string/repeat_text"
+        android:textColor="@color/black"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editDueDate" />
+        app:layout_constraintTop_toBottomOf="@+id/timeButton" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/datePickerButton"
+        style="?android:spinnerStyle"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:onClick="openDatePicker"
+        android:text="JAN 01 2020"
+        android:textColor="#546E7A"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDueDate" />
+
+    <Button
+        android:id="@+id/timeButton"
+        style="?android:spinnerStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:onClick="popTimePicker"
+        android:text="@string/due_time_enter_text"
+        android:textColor="#546E7A"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textDueTime" />
+
+    <Button
+        android:id="@+id/createTaskButton"
         android:layout_width="300dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/btn_bg"
-        android:backgroundTint="@color/purple_500"
-        android:text="@string/create"
+        android:backgroundTint="@color/teal_200"
+        android:onClick="submitData"
+        android:text="@string/create_text"
         android:textColor="@color/white"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -112,7 +145,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTitle"
+        android:id="@+id/enterTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -120,26 +153,75 @@
         android:hint="@string/title_enter_text"
         android:importantForAutofill="no"
         android:inputType="textPersonName"
-        android:minHeight="48dp"
+        android:lines="1"
+        android:maxLines="1"
+        android:minHeight="40dp"
+        android:singleLine="true"
         android:textColorHint="#546E7A"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textTitle"
         tools:ignore="DuplicateSpeakableTextCheck" />
 
-    <EditText
-        android:id="@+id/editDueDate"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:autofillHints=""
-        android:ems="10"
-        android:hint="@string/due_date_enter_text"
-        android:inputType="date"
-        android:minHeight="48dp"
-        android:textColorHint="#546E7A"
-        android:textSize="24sp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textDueDate" />
+        app:layout_constraintTop_toBottomOf="@+id/textRepeat">
+
+        <RadioButton
+            android:id="@+id/repeat_radio_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:checked="true"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/repeat_radio_1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textRepeat" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/repeat_radio_2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/repeat_radio_3"
+            app:layout_constraintStart_toEndOf="@+id/repeat_radio_2"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/repeat_radio_4"
+            app:layout_constraintStart_toEndOf="@+id/repeat_radio_3"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+        <RadioButton
+            android:id="@+id/repeat_radio_5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
+            android:onClick="onRadioButtonClicked"
+            android:text="@string/repeat_radio_5"
+            app:layout_constraintStart_toEndOf="@+id/repeat_radio_4"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_radio_1" />
+
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
